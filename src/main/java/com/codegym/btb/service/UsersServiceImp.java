@@ -20,8 +20,8 @@ public class UsersServiceImp implements IUserService {
 
     @Override
     public Users findById(Long id) {
-        Optional<Users> optionalTodo = usersRepository.findById(id);
-        return optionalTodo.get();
+        Optional<Users> optionalUsers = usersRepository.findById(id);
+        return optionalUsers.get();
     }
 
     @Override
@@ -30,8 +30,8 @@ public class UsersServiceImp implements IUserService {
     }
 
     @Override
-    public void save(Users todo) {
-        usersRepository.save(todo);
+    public void save(Users users) {
+        usersRepository.save(users);
     }
 
     @Override

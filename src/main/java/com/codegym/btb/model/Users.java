@@ -1,37 +1,72 @@
 package com.codegym.btb.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
+@Data
 public class Users {
 
     @Id
-    Long idUsers;
+    @Column(name = "id")
+    private Long idUsers;
 
+    @NotEmpty
     private String username;
+    @NotEmpty
     private String email;
+    @NotEmpty
     private String password;
+    @NotEmpty
+    private String confirmpassword;
+    @NotEmpty
+    @Column(name = "name")
     private String fullname;
+    @NotEmpty
+    @Column(name = "sdt")
     private String phonenumber;
+    @NotEmpty
     private String avatar;
 
     @ManyToOne(targetEntity = Role.class)
-    @JoinColumn (name = "idRoles")
+    @JoinColumn (name = "Role_id")
+//    @Column(name = "Role_id")
     private Role role;
 
     public Users() {
     }
 
-    public Users(Long idUsers, String username, String email, String password, String fullname, String phonenumber, String avatar, Role role) {
+    public Users(Long idUsers, @NotEmpty String username, @NotEmpty String email, @NotEmpty String password, @NotEmpty String confirmpassword, @NotEmpty String fullname, @NotEmpty String phonenumber, @NotEmpty String avatar, Role role) {
         this.idUsers = idUsers;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.confirmpassword = confirmpassword;
         this.fullname = fullname;
         this.phonenumber = phonenumber;
         this.avatar = avatar;
         this.role = role;
+    }
+
+    public Users(@NotEmpty String username, @NotEmpty String email, @NotEmpty String password, @NotEmpty String confirmpassword, @NotEmpty String fullname, @NotEmpty String phonenumber, @NotEmpty String avatar) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.confirmpassword = confirmpassword;
+        this.fullname = fullname;
+        this.phonenumber = phonenumber;
+        this.avatar = avatar;
+    }
+
+    public String getConfirmpassword() {
+        return confirmpassword;
+    }
+
+    public void setConfirmpassword(String confirmpassword) {
+        this.confirmpassword = confirmpassword;
     }
 
     public String getUsername() {
