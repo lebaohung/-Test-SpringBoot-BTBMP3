@@ -28,6 +28,11 @@ public class ResgistrationRestController {
     @Autowired
     private Environment environment;
 
+    @GetMapping({"hello"})
+    String hello(){
+        return  "hello";
+    }
+
     @PostMapping(value = "/registration")
     ResponseEntity<Void> registration(@RequestPart(value = "avatar") MultipartFile avatar, @ModelAttribute UsersForm usersForm){
 
