@@ -48,6 +48,7 @@ public class ResgistrationRestController {
         Role roleUser = new Role();
         roleUser.setIdRoles(2L);
         users.setRole(roleUser);
+        users.setStatus(true);
 
         this.usersServiceImp.save(users);
         return new ResponseEntity<>(HttpStatus.OK);
