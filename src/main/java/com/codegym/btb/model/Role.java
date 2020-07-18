@@ -1,14 +1,19 @@
 package com.codegym.btb.model;
 
+import lombok.Data;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "roles")
+@Table(name = "role")
+@Data
 public class Role {
 
     @Id
+    @Column(name = "id")
     private Long idRoles;
 
     private String role;
