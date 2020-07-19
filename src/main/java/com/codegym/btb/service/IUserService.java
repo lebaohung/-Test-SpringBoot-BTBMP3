@@ -10,4 +10,5 @@ public interface IUserService {
     void delete(Users todo);
     void deleteById(Long id);
     void save(Users todo);
+    Users findByUsername(String username);
 }

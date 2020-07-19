@@ -38,4 +38,9 @@ public class UsersServiceImp implements IUserService {
     public void deleteById(Long id) {
         usersRepository.deleteById(id);
     }
+
+    @Override
+    public Users findByUsername(String username) {
+        return usersRepository.findByUsername(username);
+    }
 }

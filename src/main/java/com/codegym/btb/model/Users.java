@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "user")
@@ -35,6 +36,9 @@ public class Users {
     @JoinColumn (name = "Role_id")
 //    @Column(name = "Role_id")
     private Role role;
+
+    @NotEmpty
+    private boolean status;
 
     public Users() {
     }

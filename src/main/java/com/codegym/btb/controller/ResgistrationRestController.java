@@ -28,6 +28,11 @@ public class ResgistrationRestController {
     @Autowired
     private Environment environment;
 
+    @GetMapping({"hello"})
+    String hello(){
+        return  "hello";
+    }
+
     @PostMapping(value = "/registration")
     ResponseEntity<Void> registration(@RequestPart(value = "avatar") MultipartFile avatar, @ModelAttribute UsersForm usersForm){
 
@@ -48,6 +53,7 @@ public class ResgistrationRestController {
         Role roleUser = new Role();
         roleUser.setIdRoles(2L);
         users.setRole(roleUser);
+        users.setStatus(true);
 
         this.usersServiceImp.save(users);
         return new ResponseEntity<>(HttpStatus.OK);
