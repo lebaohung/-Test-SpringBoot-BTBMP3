@@ -19,11 +19,11 @@ public class UsersRestController {
 
     @GetMapping("/showList")
     public ResponseEntity<List<Users>> showList(){
-        List<Users> todoList = usersServiceImp.findAll();
-        if (todoList == null) {
+        List<Users> usersList = usersServiceImp.findAll();
+        if (usersList == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(todoList, HttpStatus.OK);
+        return new ResponseEntity<>(usersList, HttpStatus.OK);
     }
 
     @GetMapping("/detail/{id}")
