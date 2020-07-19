@@ -28,7 +28,7 @@ public class ResgistrationRestController {
     @Autowired
     private Environment environment;
 
-    @GetMapping({"hello"})
+    @GetMapping({"/hello"})
     String hello(){
         return  "hello";
     }

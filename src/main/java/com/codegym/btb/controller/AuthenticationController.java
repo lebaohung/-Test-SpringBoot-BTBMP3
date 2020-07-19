@@ -3,6 +3,7 @@ package com.codegym.btb.controller;
 import com.codegym.btb.config.SecurityConfigurer;
 import com.codegym.btb.model.AuthenticationRequest;
 import com.codegym.btb.model.AuthenticationResponse;
+import com.codegym.btb.model.Users;
 import com.codegym.btb.service.MyUserDetailsService;
 import com.codegym.btb.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin("*")
 public class AuthenticationController {
@@ -23,10 +26,11 @@ public class AuthenticationController {
 
     @Autowired
     private MyUserDetailsService myUserDetailsService;
+
     @Autowired
     private JwtUtil jwtTokenUtil;
 
-    @PostMapping("/authenticate")
+    @PostMapping("/login")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
         try {
             authenticationManager.authenticate(
